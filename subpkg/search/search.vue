@@ -94,7 +94,7 @@
       clearHistoryKW(){
         //首先将渲染出来的数据清除
         this.historyList = []
-        uni.setStorageSync('history', '[]')
+        uni.setStorageSync('historyKW', '[]')
         // uni.clearStorage()
       },
       toGoodsList(item){

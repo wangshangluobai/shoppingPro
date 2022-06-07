@@ -105,7 +105,7 @@ var components
 try {
   components = {
     topSearch: function() {
-      return __webpack_require__.e(/*! import() | components/top-search/top-search */ "components/top-search/top-search").then(__webpack_require__.bind(null, /*! @/components/top-search/top-search.vue */ 56))
+      return __webpack_require__.e(/*! import() | components/top-search/top-search */ "components/top-search/top-search").then(__webpack_require__.bind(null, /*! @/components/top-search/top-search.vue */ 64))
     }
   }
 } catch (e) {
