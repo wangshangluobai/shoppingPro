@@ -10,7 +10,7 @@ import { $http } from '@escook/request-miniprogram'
 
 // 挂载到全局对象uni上
 uni.$http = $http
-// 请求基础路径
+// 请求基础路径  注意 真机预览|二维码预览数据请求失败 将https改为http
 $http.baseUrl = 'https://www.uinav.com'
 // 请求拦截器
 $http.beforeRequest = function(options){

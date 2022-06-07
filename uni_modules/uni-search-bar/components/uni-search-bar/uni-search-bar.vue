@@ -99,7 +99,7 @@
 			},
 			focus: {
 				type: Boolean,
-				default: false
+				default: true
 			}
 		},
 		data() {
@@ -227,7 +227,7 @@
 		flex-direction: row;
 		position: relative;
 		padding: 10px;
-		// background-color: #fff;
+		background-color: #ff6347;
 	}
 
 	.uni-searchbar__box {

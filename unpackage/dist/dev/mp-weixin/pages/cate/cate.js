@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    topSearch: function() {
+      return __webpack_require__.e(/*! import() | components/top-search/top-search */ "components/top-search/top-search").then(__webpack_require__.bind(null, /*! @/components/top-search/top-search.vue */ 56))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -167,16 +190,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
@@ -197,12 +210,14 @@ var _default =
   onLoad: function onLoad() {
     // 获取设备系统信息
     var sysInfo = uni.getSystemInfoSync();
-    this.windowH = sysInfo.windowHeight;
+    this.windowH = sysInfo.windowHeight - 50;
     this.getScrollList();
   },
   methods: {
     // 发送请求 获取scrollList数据
     getScrollList: function getScrollList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+
+
                   uni.$http.get('/api/public/v1/categories'));case 2:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;if (!(
                 res.meta.status == 200)) {_context.next = 9;break;}
                 _this.scrollList = res.message;
@@ -225,6 +240,11 @@ var _default =
     toGoodsList: function toGoodsList(i) {
       uni.navigateTo({
         url: '/subpkg/goods_list/goods_list?cid=' + i.cat_id });
+
+    },
+    toSearch: function toSearch() {
+      uni.navigateTo({
+        url: '/subpkg/search/search' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
