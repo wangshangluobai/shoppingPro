@@ -1,4 +1,6 @@
 {
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "top-search": "/components/top-search/top-search"
+  }
 }

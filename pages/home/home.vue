@@ -1,5 +1,9 @@
 <template>
   <view>
+    <!-- 顶部搜索 -->
+    <view class="search-box">
+      <top-search @searchClick='toSearch'></top-search>
+    </view>
     <!-- 轮播图 -->
     <swiper 
       :indicator-dots="true" 
@@ -131,12 +135,23 @@
             url:'/pages/cate/cate'
           })
         }
-      }
+      },
+      toSearch(){
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
+      },
     },
   }
 </script>
 
 <style lang="scss">
+  // 搜索组件
+  .search-box {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
   // 轮播图
   swiper{
     height: 300rpx;
