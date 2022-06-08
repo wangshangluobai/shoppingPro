@@ -44,10 +44,10 @@
       return {
         // 请求到的商品详情数据
         goodsDetailInfo: {},
+        // 商品导航数据
         options: [{
           icon: 'shop',
           text: '店铺',
-          infoBackgroundColor: '#007aff',
         	infoColor: "red"
         }, {
           icon: 'cart',
@@ -68,22 +68,25 @@
       };
     },
     methods: {
+      // 获取商品详细信息
       async getGoodsDetail(id) {
         const {
           data: res
         } = await uni.$http.get('/api/public/v1/goods/detail?goods_id=' + id)
         if (res.meta.status !== 200) return uni.$showMsg()
         // 改造富文本内容结构
-        res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block;"')
-          .replace(/webp/g, 'jpg')
+        res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block;"').replace(/webp/g, 'jpg')
         this.goodsDetailInfo = res.message
       },
+      // 轮播图预览
       preview(i) {
         uni.previewImage({
           current: i,
+          // 将图片地址收集
           urls: this.goodsDetailInfo.pics.map(x => x.pics_big)
         })
       },
+      // 点击响应事件
       onClick(e){
         if(e.content.text === '购物车'){
           // 跳转至购物车页面
@@ -93,44 +96,48 @@
         }
       },
     },
+    // 加载时回调
     onLoad(options) {
+      // 请求数据
       this.getGoodsDetail(options.goods_id)
     },
   }
 </script>
 
 <style lang="scss">
+  // 商品详情整体容器
   .goodsDetailContainer{
     padding-bottom: 50px;
   }
+  // 轮播图
   swiper {
     height: 750rpx;
-
+    // 图片
     image {
       width: 100%;
       height: 100%;
     }
   }
-
+  // 商品信息
   .goodsInfoBox {
     padding: 10px;
     padding-right: 0;
-
+    // 价格
     .price {
       color: tomato;
       font-size: 18px;
       margin: 10px 0;
     }
-
+    // 其他信息
     .goodsInfoBody {
       display: flex;
       justify-content: space-between;
-
+      // 商品名字
       .goodsName {
         font-size: 13px;
         margin-right: 10px;
       }
-
+      // 收藏
       .favi {
         width: 120px;
         font-size: 12px;
@@ -142,13 +149,14 @@
         color: gray;
       }
     }
-
+    // 运费信息
     .yf {
       font-size: 12px;
       color: gray;
       margin: 10px 0;
     }
   }
+  // 商品导航信息
   .goodsNav{
     position: fixed;
     bottom: 0;
