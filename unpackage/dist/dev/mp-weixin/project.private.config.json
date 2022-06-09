@@ -9,9 +9,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "商品详情",
-          "pathName": "subpkg/goods_detail/goods_detail",
-          "query": "goods_id=395",
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "query": "",
           "launchMode": "default",
           "scene": null
         }
