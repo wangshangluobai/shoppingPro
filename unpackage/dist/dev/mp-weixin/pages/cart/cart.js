@@ -96,22 +96,22 @@ var components
 try {
   components = {
     addressData: function() {
-      return Promise.all(/*! import() | components/address-data/address-data */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/address-data/address-data")]).then(__webpack_require__.bind(null, /*! @/components/address-data/address-data.vue */ 81))
+      return Promise.all(/*! import() | components/address-data/address-data */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/address-data/address-data")]).then(__webpack_require__.bind(null, /*! @/components/address-data/address-data.vue */ 83))
     },
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 88))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 90))
     },
     uniSwipeAction: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 96))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 98))
     },
     uniSwipeActionItem: function() {
-      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 101))
+      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 103))
     },
     goodsItem: function() {
-      return Promise.all(/*! import() | components/goods-item/goods-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/goods-item/goods-item")]).then(__webpack_require__.bind(null, /*! @/components/goods-item/goods-item.vue */ 113))
+      return Promise.all(/*! import() | components/goods-item/goods-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/goods-item/goods-item")]).then(__webpack_require__.bind(null, /*! @/components/goods-item/goods-item.vue */ 115))
     },
     settlePart: function() {
-      return __webpack_require__.e(/*! import() | components/settle-part/settle-part */ "components/settle-part/settle-part").then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 120))
+      return Promise.all(/*! import() | components/settle-part/settle-part */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/settle-part/settle-part")]).then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 122))
     }
   }
 } catch (e) {

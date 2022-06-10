@@ -11,7 +11,7 @@
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
-var _store = _interopRequireDefault(__webpack_require__(/*! @/store/store.js */ 163));
+var _store = _interopRequireDefault(__webpack_require__(/*! @/store/store.js */ 12));
 
 
 
@@ -27,6 +27,14 @@ _requestMiniprogram.$http.beforeRequest = function (options) {
   uni.showLoading({
     title: '数据加载中...' });
 
+  // 判断请求的是否为有权限的API接口
+  if (options.url.indexOf('/my/') !== -1) {
+    // 为请求头添加身份字段认证
+    options.header = {
+      // 字段的值可以直接从vuex中获取
+      Authorization: _store.default.state.mUser.token };
+
+  }
 };
 // 响应拦截器
 _requestMiniprogram.$http.afterRequest = function (options) {
