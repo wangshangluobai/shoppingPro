@@ -2,6 +2,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
+import store from '@/store/store.js'
 /**
  * 导入网络请求的包 @escook/request-miniprogram
  * 小程序不支持axios 且 wx原生请求方式不得行
@@ -36,7 +37,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+    store
 })
 app.$mount()
 // #endif

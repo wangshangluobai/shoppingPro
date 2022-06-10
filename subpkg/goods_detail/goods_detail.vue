@@ -9,7 +9,7 @@
     <!-- 商品信息区域 -->
     <view class="goodsInfoBox">
       <!-- 商品价格 -->
-      <view class="price">{{goodsDetailInfo.goods_price}}</view>
+      <view class="price">{{goodsDetailInfo.goods_price | tofixed}}</view>
       <!-- 商品信息主体区域 -->
       <view class="goodsInfoBody">
         <!-- 商品的名字 -->
@@ -39,7 +39,39 @@
 </template>
 
 <script>
+  import publicData from '@/mixins/public-data.js'
+  // 引入仓库
+  import {mapState, mapMutations, mapGetters} from 'vuex'
   export default {
+    mixins: [publicData],
+    computed: {
+      ...mapState('mCart', ['cart']),
+      // 映射total
+      ...mapGetters('mCart', ['total']),
+    },
+    watch: {
+      // 监听total值的变化 通过第一个形参得到变化后的值
+      /* total(newVal){
+        // 使用数组find()方法 找到购物车按钮的配置对象
+        const findResult = this.options.find((x) => x.text === '购物车')
+        if(findResult){
+          // 动态为购物车按钮的info属性赋值
+          findResult.info = newVal
+        }
+      }, */
+      total: {
+        // handler 属性用来定义侦听器的function处理函数
+        handler(newVal){
+          const findResult = this.options.find((x) => x.text === '购物车')
+          if(findResult){
+            // 动态为购物车按钮的info属性赋值
+            findResult.info = newVal
+          }
+        },
+        // immediate 属性用来声明此侦听器 是否在页面初次加载完毕后立即调用
+        immediate: true
+      }
+    },
     data() {
       return {
         // 请求到的商品详情数据
@@ -52,7 +84,7 @@
         }, {
           icon: 'cart',
           text: '购物车',
-          info: 2
+          info: 0
         }],
         buttonGroup: [{
             text: '加入购物车',
@@ -68,6 +100,7 @@
       };
     },
     methods: {
+      ...mapMutations('mCart', ['addToCart']),
       // 获取商品详细信息
       async getGoodsDetail(id) {
         const {
@@ -95,6 +128,24 @@
           })
         }
       },
+      buttonClick(e){
+        // 判断点击的按钮
+        if(e.content.text === '加入购物车'){
+          // 结构赋值
+          const {goods_id, goods_name, goods_price, goods_small_logo} = this.goodsDetailInfo
+          // 组织商品信息对象
+          const goodsInfo = {
+            goods_id,
+            goods_name,
+            goods_price,
+            goods_count: 1,
+            goods_small_logo,
+            goods_state: true
+          }
+          // 添加商品信息对象至仓库
+          this.addToCart(goodsInfo)
+        }
+      }
     },
     // 加载时回调
     onLoad(options) {
