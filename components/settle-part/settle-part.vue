@@ -16,6 +16,7 @@
 </template>
 
 <script>
+  // 按需引入
   import { mapGetters, mapMutations } from 'vuex'
   export default {
     name:"settle-part",
@@ -24,14 +25,20 @@
         
       };
     },
+    // 计算属性
     computed: {
+      // 映射出相关数据
       ...mapGetters('mCart', ['checkedCount', 'total', 'checkedGoodsAmount']),
+      // 判断选中状态商品和全部商品之间的关系
       isFullCheck(){
         return this.total === this.checkedCount
       },
     },
+    // 方法
     methods: {
+      // 映射方法
       ...mapMutations('mCart', ['updateAllGoodsState']),
+      // 全选点击事件
       changeAllState(){
         // 修改购物车中所有商品的选中状态
         // !this.isFullCheck表示 当前全选按钮的状态取反之后就是最新的勾选状态
@@ -42,6 +49,7 @@
 </script>
 
 <style lang="scss">
+  // 粘滞定位于底部 flex布局 水平居中
   .settleContainer{
     position: fixed;
     bottom: 0;
@@ -54,6 +62,7 @@
     background-color: white;
     font-size: 14px;
     padding-left: 5px;
+    // flex布局 侧轴居中
     .radio{
       display: flex;
       align-items: center;
@@ -64,6 +73,7 @@
         font-weight: bold;
       }
     }
+    // 行高垂直居中 最小宽度 水平居中
     .btnSettle{
       background-color: #ff6347;
       line-height: 50px;
@@ -71,7 +81,6 @@
       min-width: 100px;
       text-align: center;
       color: white;
-      
     }
   }
 </style>

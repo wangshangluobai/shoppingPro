@@ -96,22 +96,22 @@ var components
 try {
   components = {
     addressData: function() {
-      return Promise.all(/*! import() | components/address-data/address-data */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/address-data/address-data")]).then(__webpack_require__.bind(null, /*! @/components/address-data/address-data.vue */ 139))
+      return Promise.all(/*! import() | components/address-data/address-data */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/address-data/address-data")]).then(__webpack_require__.bind(null, /*! @/components/address-data/address-data.vue */ 81))
     },
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 80))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 88))
     },
     uniSwipeAction: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 147))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action */ "uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue */ 96))
     },
     uniSwipeActionItem: function() {
-      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 152))
+      return Promise.all(/*! import() | uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue */ 101))
     },
     goodsItem: function() {
-      return Promise.all(/*! import() | components/goods-item/goods-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/goods-item/goods-item")]).then(__webpack_require__.bind(null, /*! @/components/goods-item/goods-item.vue */ 99))
+      return Promise.all(/*! import() | components/goods-item/goods-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/goods-item/goods-item")]).then(__webpack_require__.bind(null, /*! @/components/goods-item/goods-item.vue */ 113))
     },
     settlePart: function() {
-      return __webpack_require__.e(/*! import() | components/settle-part/settle-part */ "components/settle-part/settle-part").then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 165))
+      return __webpack_require__.e(/*! import() | components/settle-part/settle-part */ "components/settle-part/settle-part").then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 120))
     }
   }
 } catch (e) {
@@ -205,17 +205,24 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
 var _tabbarBadge = _interopRequireDefault(__webpack_require__(/*! @/mixins/tabbar-badge.js */ 26));
+
 var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
 {
   // 将badgeMix混入到当前的页面中进行使用
   mixins: [_tabbarBadge.default],
+  // 计算属性
   computed: _objectSpread({},
 
   (0, _vuex.mapState)('mCart', ['cart'])),
 
   data: function data() {
     return {
+      // uni-swiper-action滑块配置
       options: [{
         text: '删除',
         style: {
@@ -224,6 +231,7 @@ var _vuex = __webpack_require__(/*! vuex */ 13);function _interopRequireDefault(
 
 
   },
+  // 方法
   methods: _objectSpread(_objectSpread({},
 
   (0, _vuex.mapMutations)('mCart', ['updateGoodsState', 'updateGoodsCount', 'delGoodsItem'])), {}, {

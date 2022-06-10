@@ -9,7 +9,7 @@
     <!-- 商品信息区域 -->
     <view class="goodsInfoBox">
       <!-- 商品价格 -->
-      <view class="price">{{goodsDetailInfo.goods_price}}</view>
+      <view class="price">{{goodsDetailInfo.goods_price | tofixed}}</view>
       <!-- 商品信息主体区域 -->
       <view class="goodsInfoBody">
         <!-- 商品的名字 -->
@@ -39,9 +39,11 @@
 </template>
 
 <script>
+  import publicData from '@/mixins/public-data.js'
   // 引入仓库
   import {mapState, mapMutations, mapGetters} from 'vuex'
   export default {
+    mixins: [publicData],
     computed: {
       ...mapState('mCart', ['cart']),
       // 映射total

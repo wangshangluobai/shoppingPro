@@ -50,11 +50,15 @@
         // address: {},
       };
     },
+    // 计算属性
     computed: {
+      // 映射响应数据
       ...mapState('mUser', ['address']),
       ...mapGetters('mUser', ['addStr']),
     },
+    // 方法
     methods: {
+      // 映射方法
       ...mapMutations('mUser', ['updateAddress']),
       // 选择收货地址
       async chooseAdd(){
@@ -112,17 +116,20 @@
 </script>
 
 <style lang="scss">
+  // 块级元素 占据整行
   .addressBorder{
     display: block;
     width: 100%;
     height: 5px;
   }
+  // flex布局 垂直 水平居中
   .addressChoose{
     height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  // flex布局 垂直排列 水平居中
   .addressInfo{
     font-size: 12px;
     height: 90px;
@@ -130,24 +137,28 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 5px;
+    // flex布局 水平排列空隙在元素间
     .row1{
       display: flex;
       justify-content: space-between;
       .row1Left{
         .username{}
       }
+      // flex布局 水平排列空隙在元素间
       .row1Right{
         display: flex;
         justify-content: space-between;
         .phone{}
       }
     }
+    // flex布局 垂直方向居中
     .row2{
       display: flex;
       // justify-content: space-between;
       align-items: center;
       margin-top: 10px;
       .row2Left{
+        // 文字不换行
         white-space: nowrap;
       }
       .row2Right{}

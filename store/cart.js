@@ -3,10 +3,11 @@ export default{
   namespaced: true,
   // 模块的state数据
   state: ()=> ({
-    /**
+    /**变量描述及获取
      * 购物车的数据 用来存储购物车中每个商品的信息对象
      * 每个对象都包含6个属性
      * id name price count small_logo state 
+     * 使用本地存储配合JSON获取数据 防止刷新失去信息 
       */
      cart: JSON.parse(uni.getStorageSync('Cart') || '[]'),
   }),
@@ -14,11 +15,12 @@ export default{
   mutations: {
     // 添加商品至购物车
     addToCart(state, goods){
-      /**
+      /**添加购物车方法处理
        * 根据提交的商品ID 检测购物车中是否存在该商品
        * 存在 则findResult为undefined 反之 为查找商品信息对象
         */
        const findResult = state.cart.find((x) => x.goods_id === goods.goods_id)
+       // 对查询结果进行判定
        if(!findResult){
          // 如果购物车中没该商品 则直接push
          state.cart.push(goods)
@@ -83,7 +85,7 @@ export default{
     },
     // 勾选的商品的总数量
     checkedCount(state){
-      /**
+      /**商品总量计算方法
        * 先使用filter方法 从购物车中过滤已勾选的商品
        * 再使用reduce方法 将已勾选的商品的总数量进行累加
        * reduce()的返回值就是已勾选的总数量
@@ -92,7 +94,7 @@ export default{
     },
     // 已勾选的商品总价
     checkedGoodsAmount(state){
-      /**
+      /**计算选中商品总价方法
        * 先使用filter方法 从购物车中过滤已勾选的商品
        * 再使用reduce方法 将已勾选的商品数量 * 单价之后 进行累加
        * reduce() 的返回值就是已勾选的商品的总价
