@@ -4357,7 +4357,13 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
   // state 数据
   state: function state() {return {
       // 收货地址 使用本地存储配合JSON持久化存储数据
-      address: JSON.parse(uni.getStorageSync('address') || '{}') };},
+      address: JSON.parse(uni.getStorageSync('address') || '{}'),
+      // 登录成功之后的token字符串
+      token: uni.getStorageSync('token') || '',
+      // 用户基本信息
+      userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
+      // 重定向的object对象 对象 { openType, from }
+      redirectInfo: null };},
 
   // 方法
   mutations: {
@@ -4367,9 +4373,32 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
       // 持久化存储
       this.commit('mUser/saveAddressToStorage');
     },
-    // 持久化存储到本地
+    // 将地址持久化存储到本地
     saveAddressToStorage: function saveAddressToStorage(state) {
       uni.setStorageSync('address', JSON.stringify(state.address));
+    },
+    // 将用户信息持久化存储到本地
+    saveUserInfoToStorage: function saveUserInfoToStorage(state) {
+      uni.setStorageSync('userinfo', JSON.stringify(state.userinfo));
+    },
+    // 将token字符串持久化存储到本地
+    saveTokenToStorage: function saveTokenToStorage(state) {
+      uni.setStorageSync('token', state.token);
+    },
+    // 更新用户信息
+    updateUserInfo: function updateUserInfo(state, userinfo) {
+      state.userinfo = userinfo;
+      // 持久化存储用户信息
+      this.commit('mUser/saveUserInfoToStorage');
+    },
+    updateToken: function updateToken(state, token) {
+      state.token = token;
+      // 持久化存储
+      this.commit('mUser/saveTokenToStorage');
+    },
+    // 更新重定向的信息对象
+    updateRedirectInfo: function updateRedirectInfo(state, info) {
+      state.redirectInfo = info;
     } },
 
   //数据包装器

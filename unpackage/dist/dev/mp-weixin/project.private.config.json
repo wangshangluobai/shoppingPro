@@ -9,8 +9,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "购物车",
-          "pathName": "pages/cart/cart",
+          "name": "",
+          "pathName": "pages/my/my",
           "query": "",
           "launchMode": "default",
           "scene": null

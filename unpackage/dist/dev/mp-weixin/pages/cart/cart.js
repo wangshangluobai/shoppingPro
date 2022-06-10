@@ -111,7 +111,7 @@ try {
       return Promise.all(/*! import() | components/goods-item/goods-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/goods-item/goods-item")]).then(__webpack_require__.bind(null, /*! @/components/goods-item/goods-item.vue */ 115))
     },
     settlePart: function() {
-      return __webpack_require__.e(/*! import() | components/settle-part/settle-part */ "components/settle-part/settle-part").then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 122))
+      return Promise.all(/*! import() | components/settle-part/settle-part */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/settle-part/settle-part")]).then(__webpack_require__.bind(null, /*! @/components/settle-part/settle-part.vue */ 122))
     }
   }
 } catch (e) {

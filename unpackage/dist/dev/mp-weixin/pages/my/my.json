@@ -1,4 +1,7 @@
 {
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "login-user": "/components/login-user/login-user",
+    "info-user": "/components/info-user/info-user"
+  }
 }
